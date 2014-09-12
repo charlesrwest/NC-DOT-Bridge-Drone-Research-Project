@@ -1,0 +1,5 @@
+Photostitching would appear to be a useful technology for analysis of rockslides, in that the pictures can be taken from high enough altitude that the 3D changes are minor.  An appropriate interface for this application might be a GIS based map where the user can click and drag to select an area to be mapped and have the GIS updated.
+
+2d3 has technology for state estimation from video and generation of 2.5D to 3D maps based solely on video.
+
+

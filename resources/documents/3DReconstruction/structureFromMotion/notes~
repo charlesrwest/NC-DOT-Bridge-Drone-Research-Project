@@ -1,0 +1,7 @@
+CMVS/PMVS2 seem to be open source libraries that provide multi view reconstruction.  However, they appear to rely on the SIFT algorithm which they claim is copyrighted (need to check).
+
+VisualSFM appears to put the packages together in such a way that you can use a GUI to make a 3D scene from images.  Processing each image appears to take on the order of 5-10 seconds (scaling time unknown).  It should be possible to take a normal hand held recording to check the feasiblity/reconstruction accuracy of the algorithm.
+
+At a 30 frames per second and constant scaling, it would require 150 hrs to 300 hrs per hr of video to be processed (though parallelization might be possible).
+
+

@@ -1,0 +1,33 @@
+Youtube tutorial on using VisualSFM and CMVS to reconstruct a 3D scene from a few images
+https://www.youtube.com/watch?v=wBKidr0e-XA
+https://www.youtube.com/watch?v=-S7HeJvIKcs
+
+Website for VisualSFM
+http://ccwu.me/vsfm/
+
+Website for CMVS/PMVS2
+http://www.di.ens.fr/cmvs/
+
+A tutorial for basic 3D reconstruction using openCV (fairly basic)
+http://www.morethantechnical.com/2012/02/07/structure-from-motion-and-3d-reconstruction-on-the-easy-in-opencv-2-3-w-code/
+
+A poorly documented multi view reconstruction library
+https://github.com/openMVG/openMVG
+
+A youtube tutorial on how to use Microsoft's (free?) Photosynth program to make untextured 3D reconstructions
+https://www.youtube.com/watch?v=TuHJUS2olyc
+
+MIT liciensed code to export from Photosynth to the PMVS2 library to make textured 3D mesh reconstructions
+http://www.visual-experiments.com/2010/11/09/photosynth-toolkit-updated/
+Related discussion (and good overview of related software)
+https://photosynth.net/discussion.aspx?cat=6b63cb81-8b57-4d5d-a978-41d5509bf59a&dis=372ad187-ade1-438e-b417-d88a737d3de1
+
+UNC Urban reconstruction paper
+http://graphics.stanford.edu/~pmerrell/Pollefeys_UrbanReconstruction07.pdf
+
+Related site:
+http://cs.unc.edu/Research/urbanscape/
+
+An example of their results:
+https://www.youtube.com/watch?v=sz0UbHvEttI
+
