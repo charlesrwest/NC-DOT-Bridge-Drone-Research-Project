@@ -5,3 +5,45 @@ VisualSFM appears to put the packages together in such a way that you can use a 
 At a 30 frames per second and constant scaling, it would require 150 hrs to 300 hrs per hr of video to be processed (though parallelization might be possible).
 
 UNC's urban reconstruction algorithms seem to use GPUs and optimized algorithms to get near real time reconstruction from video.
+
+To get seperate images from video, use the following command (need to figure out how to down sample):
+avconv -i video_20140915_184703.mp4 frames/frame-%05d.jpg -threads 3
+
+log:
+s/3DReconstruction/handheldWalkAround/test.nvm.cmvs/00/ 50 4
+genOption /home/hewhosurvives/Videos/ardroneFlights/3DReconstruction/handheldWalkAround/test.nvm.cmvs/00/ 1 2 0.700000 7 3 4
+4 clusters are generated for pmvs reconstruction.
+pmvs2 /home/hewhosurvives/Videos/ardroneFlights/3DReconstruction/handheldWalkAround/test.nvm.cmvs/00/ option-0000
+This may take a little more time, waiting...
+315 seconds were used by PMVS
+Loading option-0000.ply, 24024 vertices ...
+Loading patches and estimating point sizes..
+pmvs2 /home/hewhosurvives/Videos/ardroneFlights/3DReconstruction/handheldWalkAround/test.nvm.cmvs/00/ option-0001
+This may take a little more time, waiting...
+178 seconds were used by PMVS
+Loading option-0001.ply, 24830 vertices ...
+Loading patches and estimating point sizes..
+pmvs2 /home/hewhosurvives/Videos/ardroneFlights/3DReconstruction/handheldWalkAround/test.nvm.cmvs/00/ option-0002
+This may take a little more time, waiting...
+260 seconds were used by PMVS
+Loading option-0002.ply, 18653 vertices ...
+Loading patches and estimating point sizes..
+pmvs2 /home/hewhosurvives/Videos/ardroneFlights/3DReconstruction/handheldWalkAround/test.nvm.cmvs/00/ option-0003
+This may take a little more time, waiting...
+180 seconds were used by PMVS
+Loading option-0003.ply, 23321 vertices ...
+Loading patches and estimating point sizes..
+
+#############################
+You can manually remove bad MVS points:
+1. Switch to dense MVS points mode;
+2. Hit F1 key to enter the selection mode;
+3. Select points by dragging a rectangle;
+4. Hit DELETE to delete the selected points.
+
+#############################
+Save to test.nvm ... done
+Save /home/hewhosurvives/Videos/ardroneFlights/3DReconstruction/handheldWalkAround/test.0.ply ...done
+----------------------------------------------------------------
+Run dense reconstruction, finished
+Totally 18.533 minutes used

@@ -4,4 +4,7 @@ VisualSFM appears to put the packages together in such a way that you can use a 
 
 At a 30 frames per second and constant scaling, it would require 150 hrs to 300 hrs per hr of video to be processed (though parallelization might be possible).
 
+UNC's urban reconstruction algorithms seem to use GPUs and optimized algorithms to get near real time reconstruction from video.
 
+To get seperate images from video, use the following command (need to figure out how to down sample):
+avconv -i video_20140915_184703.mp4 frames/frame-%05d.jpg -threads 3
