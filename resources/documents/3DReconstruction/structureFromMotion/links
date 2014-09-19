@@ -34,3 +34,9 @@ http://cs.unc.edu/Research/urbanscape/
 An example of their results:
 https://www.youtube.com/watch?v=sz0UbHvEttI
 
+
+A really good monocular SLAM algorithm released in 2014 with a GPL library (give superior results, handles large scenes and can run real time on a phone)
+http://vision.in.tum.de/research/lsdslam?redirect=1
+
+Demo video:
+https://www.youtube.com/watch?v=GnuQzP3gty4

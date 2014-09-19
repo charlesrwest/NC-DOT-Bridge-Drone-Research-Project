@@ -8,7 +8,7 @@ The only other currently viable future option (meaning not just using a Kinect) 
 
 Harshad (roommate) said that the point cloud stitching originated with the "Kinect Fusion algorithm".  He also said that the PCL library was good for it.
 
-Intel has recently released details about its "RealSense" technology.  It appears to be a sterio vision based point cloud sensor.  Luckily, Intel appears quite willing to sell the sensor directly (and will probably have decent linux support).  Since it is sterio vision based, the sensor will probably work well in direct sunlight but not as well in the dark.
+Intel has recently released details about its "RealSense" technology.  It appears to be a sterio vision based point cloud sensor.  Luckily, Intel appears quite willing to sell the sensor directly (and will probably have decent linux support).  Since it is sterio vision based, the sensor will probably work well in direct sunlight but not as well in the dark.  The range is not known.
 
 The sensor has not yet been released but they are allowing reservations to be placed for the developer kit ($100) and Charlie has placed a reservation (since the sensor is inexpensive and likely to be useful for several projects).
 

@@ -1,3 +1,5 @@
+A useful search term is RGB-D sensors (D for depth)
+
 The Microsoft Kinect was based of a primesense sensor.  Primesense then developed (recently) a extremely small version of the kinect (primesense capri) suitable for mobile devices.
 
 Apple then bought Primesense and is currently systematically closing down any open development that relied on Primesense by not releasing the sensor outside of their devices and shutting down OpenNI.  

@@ -1,0 +1,10 @@
+A ROS package for monocular state estimation (using built in webcam on AR Drone 2.0)
+http://wiki.ros.org/tum_ardrone
+
+A collection of open slam algorithms (many with open source code)
+https://openslam.org/
+
+A opensource monocular slam library (C++)
+https://openslam.org/ (RobotVision)
+
+

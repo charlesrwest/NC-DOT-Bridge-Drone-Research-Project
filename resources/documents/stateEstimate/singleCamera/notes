@@ -1,0 +1,3 @@
+A key phrase to look into is "monocular SLAM".  It is what is used by tum Ardrone library.
+
+Monocular slam doesn't work unless you have some other source of data (such as a altimeter) which can let you resolve scale.
