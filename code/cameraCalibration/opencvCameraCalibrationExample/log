@@ -1,0 +1,23 @@
+This is a camera calibration sample.
+Usage: calibration configurationFile
+Near the sample file you'll find the configuration file, which has detailed help of how to edit it.  It may be any OpenCV supported file format XML/YAML.
+Test 1
+
+Test 5
+
+Yarg!
+Barg!
+Cool
+Video! Going to open /home/hewhosurvives/c++/randomProjects/NC-DOTBridgeProject/code/cameraCalibration/opencvCameraCalibrationExample/test.avi
+Current opened status: 1
+Weirdness: 0 1
+Test 4
+
+Test 2
+
+Test 3
+
+
+Calibrating camera
+Re-projection error reported by calibrateCamera: 0.612278
+Calibration succeeded. avg re projection error = 0.612278

@@ -1,0 +1,8 @@
+Ros camera calibration package
+http://wiki.ros.org/camera_calibration
+
+Camera calibration tutorial
+http://library.isr.ist.utl.pt/docs/roswiki/camera_calibration%282f%29Tutorials%282f%29StereoCalibration.html
+
+Tutorial on how camera calibration works/what it does
+http://docs.opencv.org/modules/calib3d/doc/camera_calibration_and_3d_reconstruction.html
