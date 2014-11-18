@@ -1,0 +1,21 @@
+Nav data rate needs to be set to 200 Hz
+
+The drone can go out of control for as of yet unknown reasons.  At least one failure appears to be with the PTAM tracking losing its lock.  It also appears to be adversely affected by having anything besides a flat surface underneath it (at least in the calibration stages).
+
+The PTAM package seemed relatively satisfied with its lock, but it might have improved performance if we do a ros camera calibration.
+
+Instructions to install all of the required ros components can be found here:
+http://wiki.ros.org/tum_ardrone
+https://github.com/AutonomyLab/ardrone_autonomy
+
+To start the drone, run the following commands either as seperate processes or in different windows (a ros batch script could also be used):
+
+roscore
+rosrun ardrone_autonomy ardrone_driver _realtime_navdata:=True _navdata_demo:=0
+rosrun tum_ardrone drone_stateestimation
+rosrun tum_ardrone drone_autopilot
+rosrun tum_ardrone drone_gui
+
+A basic demo can then be done by entering and sending the text from the initializePTAMAndDoRectangleThenLand script from the ardroneDemo flightplans folder in the text command box in the GUI.  It will initialize PTAM using the motion of the quadcopter, then take off and attempt to do a rectangle.  It has a tendency to go wild at the beginning as it attempts to calibrate/starts first manuevers.  It is a very good idea to keep your hand on the "land" button to about if it starts to misbehave.
+
+

@@ -115,8 +115,10 @@ printf("Groove?\n");
                         nrFrames = (nrFrames < (int)imageList.size()) ? nrFrames : (int)imageList.size();
                     }
                 else
+{
 printf("Cool\n");
                     inputType = VIDEO_FILE;
+}
             }
             if (inputType == CAMERA)
 {
@@ -321,6 +323,8 @@ int aTest = 0;
 
         if ( found)                // If done with success,
         {
+printf("NOW\n");
+/*
 aTest++;//Skip 50 found frames, then sample one
 if((aTest % 50) == 0)
 {
@@ -330,6 +334,8 @@ else
 {
 continue;
 }
+*/
+
 //printf("Found corners\n");
               // improve the found corners' coordinate accuracy for chessboard
                 if( s.calibrationPattern == Settings::CHESSBOARD)

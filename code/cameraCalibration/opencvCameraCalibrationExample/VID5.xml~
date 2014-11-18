@@ -19,7 +19,7 @@
   <!--  If true (non-zero) we flip the input images around the horizontal axis.-->
   <Input_FlipAroundHorizontalAxis>0</Input_FlipAroundHorizontalAxis>
 
-<Input>"./VID5Sub.xml"</Input>
+<Input>"images/CameraCalibraation/VID5/VID5.xml"</Input>
 
   <!-- How many frames to use, for calibration. -->
   <Calibrate_NrOfFrameToUse>8</Calibrate_NrOfFrameToUse>

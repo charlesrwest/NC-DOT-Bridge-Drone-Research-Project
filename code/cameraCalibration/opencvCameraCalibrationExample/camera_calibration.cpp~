@@ -115,8 +115,10 @@ printf("Groove?\n");
                         nrFrames = (nrFrames < (int)imageList.size()) ? nrFrames : (int)imageList.size();
                     }
                 else
+{
 printf("Cool\n");
                     inputType = VIDEO_FILE;
+}
             }
             if (inputType == CAMERA)
 {
@@ -321,8 +323,9 @@ int aTest = 0;
 
         if ( found)                // If done with success,
         {
-aTest++;//Skip 25 found frames, then sample one
-if((aTest % 25) == 0)
+printf("NOW\n");
+aTest++;//Skip 50 found frames, then sample one
+if((aTest % 50) == 0)
 {
 aTest = 0;
 }

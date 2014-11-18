@@ -7,4 +7,7 @@ https://openslam.org/
 A opensource monocular slam library (C++)
 https://openslam.org/ (RobotVision)
 
+An interesting (ROS) modification of PTAM for use in outdoor enviroments
+http://wiki.ros.org/ethzasl_ptam
+
 
