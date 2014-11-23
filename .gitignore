@@ -1,0 +1,15 @@
+*~
+CMakeFiles
+CMakeCache.txt
+cmake_install.cmake
+*.pb.cc
+*.pb.h
+*.a
+*.so
+Makefile
+*.MP4
+*.avi
+*.ppm
+*.png
+*.jpg
+*.jpeg
