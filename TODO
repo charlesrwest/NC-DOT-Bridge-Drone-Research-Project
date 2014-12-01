@@ -1,3 +1,24 @@
-Remove image and video files from git repository and add them to .gitignore file
+Get ChibiOS working on a USB compatible microcontroller.
+
+Get a good PTAM calibration for my webcam and the gopro.  Make sure that the gopro calibration matches the gopro used for testing sequences.
+
+Get ROS style camera calibration for the gopro and see if it can be used with the live version of LSDSlam.
+
+Get ROS style camera calibration for the AR drone.  See if that helps it fly better/not go out of control as much.
+
+Check shoving motion for the AR drone.
+
+Determine how the GUI program is controlling the quadcopter and how my ROS node could take control of it.
 
 
+
+Completed:
+Created a high resolution checker board to be plotted for easier camera calibrations (especially for flying drones).
+
+Determined how to make sped up (reduced frames) versions of video to ensure that PTAM calibration can be done in a resonable time.
+
+Removed video files from github repository history and created .gitignore files to make sure that git will ignore any future video files.
+
+Rewired PTAM camera calibrator so that it works with recorded video instead of just grabbing the first video device on the computer.
+
+Fixed PTAM camera calibrator so that it would take video files of an abritrary size, rather than cropping them to a (too small) size.

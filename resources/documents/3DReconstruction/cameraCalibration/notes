@@ -1,5 +1,14 @@
 
+Ros calibration:
+
 Checkerboard in the lab
 23 mm squares
 9x6 squares
 rosrun camera_calibration cameracalibrator.py --size 9x6 --square 0.23 image:=/usb_cam/image_raw camera:=/usb_cam
+
+Speed up video:
+2 time speedup
+avconv -i input.mkv -filter:v "setpts=0.5*PTS" output.mkv
+
+How to strip the sound from a video, if needed
+avconv -i INPUT.3gp -an -c:v copy OUTPUT.3gp

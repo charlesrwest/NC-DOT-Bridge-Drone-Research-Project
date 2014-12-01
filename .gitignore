@@ -8,6 +8,8 @@ cmake_install.cmake
 *.so
 Makefile
 *.MP4
+*.mp4
+*.wmv
 *.avi
 *.ppm
 *.png
