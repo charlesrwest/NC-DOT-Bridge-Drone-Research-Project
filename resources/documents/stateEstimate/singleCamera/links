@@ -10,4 +10,5 @@ https://openslam.org/ (RobotVision)
 An interesting (ROS) modification of PTAM for use in outdoor enviroments
 http://wiki.ros.org/ethzasl_ptam
 
-
+A nice commentary of how to find position relative to 4 points on a rectangle using opencv:
+http://stackoverflow.com/questions/15727527/how-to-determine-world-coordinates-of-a-camera

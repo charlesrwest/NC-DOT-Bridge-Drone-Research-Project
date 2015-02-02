@@ -3,3 +3,9 @@ A key phrase to look into is "monocular SLAM".  It is what is used by tum Ardron
 Monocular slam doesn't work unless you have some other source of data (such as a altimeter) which can let you resolve scale.
 
 PTAM was developed to provide pose estimation in small scenes (released with a GPL license).  It would appear the work has been extended to allow its use in large outdoor scenes with quadcopters.
+
+It looks like it might be possible to robustly position a monocular camera relative to a QR code if the QR code embeds is physical size in its text and the zbar code allows determination of orientation (which points correspond to which corners).
+
+Zbar appears to be consistent in the ordering of the rectangle vertices of a detected QR code, so it would be suitable to be used with the 4 point algorithm to obtain the transform of the camera using opencv.
+
+

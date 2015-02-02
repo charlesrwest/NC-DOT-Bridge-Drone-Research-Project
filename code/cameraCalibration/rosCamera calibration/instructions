@@ -5,3 +5,9 @@ rosrun camera_calibration cameracalibrator.py --size 9x6 --square 0.23 image:=/u
 
 To republish a video file:
 roslaunch ros2opencv avi2ros.launch input:=/path/to/avi/file
+
+New board:
+6 cm squares
+9x6 squares
+
+rosrun camera_calibration cameracalibrator.py --size 10x7 --square 6 image:=/ardrone/front/image_raw camera:=/ardrone/front/

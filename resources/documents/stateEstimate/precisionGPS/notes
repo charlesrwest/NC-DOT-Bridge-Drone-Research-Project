@@ -1,0 +1,12 @@
+There are several different levels of GPS units available.  Prices range from ~$30 to several thousand dollars and precision ranges from ~3m to centimeters.  Most solutions fall in one of a few categories:
+
+Single  Point  Positioning (SPP)
+This is the default GPS mode that is used in cheap receivers.  Its accuracy is a few meters.
+
+Precise Point Positioning (PPP)
+This is a mode supported by slightly more expensive receivers which allows for more accuracy (decimeters?) after being stationary for a long period of time (hour+).  More expensive (dual frequency) can get very accurate results but have prices in the thousands.
+
+Differential GPS/RTK GPS
+This can (with expensive equipment) get centimeter level accuracy.  Receivers are typically in the thousands of dollars range and access to real time data from a base station is required.  However, North Carolina has a network of basestations and real time data is availiable for a $500 one time cost (trimble network).  Non-realtime data is free (could be used for post processing).
+
+RTKLib appears to be an open source library that helps to use reference information to get greater precision from GPS.  Several papers/tutorials use it to achieve very good accuracy using PPP with inexpensive off the shelf gps modules.  To quote the open street map wiki on RTKLib, "With professional receivers and antennas, it is possible to achieve centimeter accuracy, while low-cost single frequency equipment can achieve decimeter accurary."

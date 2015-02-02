@@ -1,0 +1,22 @@
+Development steps:
+
+Print 3 sizes of oriented roundels for testing.  It would be best if they were stuck to some form of cardboard or poster (do I still have spray glue?).
+
+Create program to get the AR drone to do controlled hovering over the oriented roundel.  
+
+Determine the height/maneuvering angles at which the AR Drones can distinguish the oriented roundel by picking up the drone (while it is configured to look at the bottom camera) and moving it manually around the target.
+
+Create rectangle and flip behavior for basic example manuever.  Do it several times to ensure the stability of the algorithm (test if suitable for crowd demos).
+
+Create a set of basic behaviors, such as the following:
+
+Hover over locked on target
+Search for oriented roundel in immediate neighborhood by doing a spiral search
+Do rectangular search grid to find oriented roundel.
+
+The idea is that the drone could do periods of blind manuevering followed by aquiring the target.  This would allow missions like taking off from one part of the stage and landing in another part of the stage.
+
+Ideally, we could have the computer do a talking bit (such as "Stand clear.  Quadrotor is departing"), have the drone take off and land on a different part of the stage.  Once it arrived, the computer could say "Mission %d completed".
+
+Another trick (which has been demonstrated on Youtube) is having the drone hover over a moving roundel.  Similarly, we could have the drone land on a moving ground vehicle (with a roundel on the vehicle) (this could be accompanied with a humourous audio clip, such as Darth Vader's "I have you now").
+

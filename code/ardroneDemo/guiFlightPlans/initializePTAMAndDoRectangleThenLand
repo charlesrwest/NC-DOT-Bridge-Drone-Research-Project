@@ -7,7 +7,7 @@ setStayTime 3
 lockScaleFP
 
 goto 0 0 0 0
-goto 0 0 1 0
+goto 0 0 .5 0
 goto 0 0 0 0
 
 
@@ -17,3 +17,4 @@ goto 0.5 0.5 0 0
 goto 0.5 -0.5 0 0
 goto 0 0 0 0
 
+land

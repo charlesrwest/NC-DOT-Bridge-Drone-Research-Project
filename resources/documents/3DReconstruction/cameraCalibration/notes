@@ -12,3 +12,6 @@ avconv -i input.mkv -filter:v "setpts=0.5*PTS" output.mkv
 
 How to strip the sound from a video, if needed
 avconv -i INPUT.3gp -an -c:v copy OUTPUT.3gp
+
+Split video into individual pictures
+avconv -i Video.mpg Pictures%d.jpg

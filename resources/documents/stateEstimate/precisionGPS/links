@@ -1,0 +1,31 @@
+
+
+Good tutorial on using RTKLIB with a cheap GPS module to get very good accuracy over a long time
+https://sites.google.com/site/wayneholder/home/centimeter-precision-gps
+
+Some links for places to buy cheap parts that are compatible with RTKLIB
+http://tubbyaustin.blogspot.com/2013/06/rtklib-on-raspberry-pi.html
+
+Information to get access to North Carolina GNSS Real Time Network (RTN) ($500 one time fee for realtime) and map of base stations
+http://portal.ncdenr.org/web/lr/geodetic/maps/cors
+
+Great list of basestations available in different states
+http://gpsworld.com/finally-a-list-of-public-rtk-base-stations-in-the-u-s/
+
+$50 module (Ublox-6T) with usb connection (antenna seperate)
+http://www.emlid.com/shop/u-blox-neo-usb/
+
+Example of the full solution (using differential with u-blox 6T) with a video of it being used
+http://www.emlid.com/navio-rtklib/
+
+Another tutorial/paper on using RTKLIB to get better accuracy using reference stations
+http://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=4&ved=0CDEQFjAD&url=http%3A%2F%2Fwww.transnav.eu%2Ffiles%2FEvaluation%2520of%2520RTKLIB%2527s%2520Positioning%2520Accuracy%2520Using%2520low-cost%2520GNSS%2520Receiver%2520and%2520ASG-EUPOS%2C412.pdf&ei=1JjOVILgI4ScNtrMg-AG&usg=AFQjCNFW2xZ-8kxYc4ONGGFv-i0stASWYA&sig2=KLHVVQjLe0DdoRR_6RXK3A 
+
+Release announcement for real time PPP
+http://gpsworld.com/igs-launches-real-time-service/
+
+History of PPP and real time PPP
+http://www.sage.unsw.edu.au/snap/publications/grinter&roberts2013a.pdf
+
+Interesting ODroid/Raspberry Pi based quadrotor autopilot with some precision GPS support
+http://www.emlid.com/navio-and-odroid-c1-the-most-powerful-linux-autopilot/

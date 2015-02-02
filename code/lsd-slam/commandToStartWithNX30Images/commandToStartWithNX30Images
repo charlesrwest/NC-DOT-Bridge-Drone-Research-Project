@@ -1,0 +1,2 @@
+rosrun lsd_slam_core dataset_slam _files:=/home/hewhosurvives/Videos/NC-DOT-Videos/3DReconstruction/NX30/picturesPathList _hz:=1 _calib:=/home/hewhosurvives/c++/randomProjects/NC-DOTBridgeProject/code/cameraCalibration/PTAM-calibrations/NOX30Calibrations/soSoNOX30Calibration.cfg
+
