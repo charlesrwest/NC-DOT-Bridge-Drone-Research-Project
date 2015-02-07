@@ -12,3 +12,10 @@ http://wiki.ros.org/ethzasl_ptam
 
 A nice commentary of how to find position relative to 4 points on a rectangle using opencv:
 http://stackoverflow.com/questions/15727527/how-to-determine-world-coordinates-of-a-camera
+
+Tutorial on finding position and the difference between opencv and opengl transform matrices
+http://answers.opencv.org/question/23089/opencv-opengl-proper-camera-pose-using-solvepnp/
+
+Product ad/tutorial on optical flow for robots
+http://www.centeye.com/technology/optical-flow/
+

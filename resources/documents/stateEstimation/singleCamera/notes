@@ -8,4 +8,5 @@ It looks like it might be possible to robustly position a monocular camera relat
 
 Zbar appears to be consistent in the ordering of the rectangle vertices of a detected QR code, so it would be suitable to be used with the 4 point algorithm to obtain the transform of the camera using opencv.
 
+It looks like mouse sensors can be used for odometry if a different lense is used to change what range they use.
 
