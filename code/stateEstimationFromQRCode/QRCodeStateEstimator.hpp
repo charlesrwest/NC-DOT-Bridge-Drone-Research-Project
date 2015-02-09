@@ -13,21 +13,9 @@
 #include <opencv2/calib3d/calib3d.hpp>
 #include <zbar.h>
 
-//TODO: Fix m/mm resolution issue
-//TODO: Fix zbar update when there is no motion blur
-
 //Declare handy constants
 static const std::string QRCodeStateEstimatorWindowTitle = "Now";
-static const std::map<std::string, double> unitIdentifierToMetricMeterConversionFactor = {{"m", 1.0}, {"cm", .01}, {"mm", .001}, {"ft", .3048}, {"in", .0254}};
-
-//Create opencv to opengl conversion matrix
-const static cv::Mat_<double> cvToGlConversionMatrix = (cv::Mat_<double>(4,4) 
-<< 
-1.0,  0.0,  0.0, 0.0,
-0.0, -1.0,  0.0, 0.0, // Invert the y axis 
-0.0,  0.0, -1.0, 0.0, // invert the z axis 
-0.0,  0.0,  0.0, 1.0); 
-
+static const std::map<std::string, double> unitIdentifierToMetricMeterConversionFactor = {{"m-", 1.0}, {"cm-", .01}, {"mm-", .001}, {"ft-", .3048}, {"in-", .0254}};
 
 
 /*
@@ -49,7 +37,7 @@ This function initializes the state estimator with the OpenCV camera calibration
 QRCodeStateEstimator(int inputCameraImageWidth, int inputCameraImageHeight, const cv::Mat_<double> &inputCameraCalibrationMatrix, const cv::Mat_<double> &inputCameraDistortionParameters, bool inputShowResultsInWindow = false);
 
 /*
-This function takes a BGR frame of the appropriate size, scans for a QR code with an embedded size (recognized decimal formats: ft, in, cm, mm, m), and stores the pose of the camera (OpenGL format) relative to the coordinate system of the QR tag in the provided buffer.  If multiple tags are recognized, it will only return the information for the first.
+This function takes a BGR frame of the appropriate size, scans for a QR code with an embedded size (recognized decimal formats: ft, in, cm, mm, m), and stores the pose of the camera (OpenCV format) relative to the coordinate system of the QR tag in the provided buffer.  If multiple tags are recognized, it will only return the information for the first.
 @param inputBGRFrame: The frame to process (should be same size as calibration)
 @param inputCameraPoseBuffer: The buffer to place the 4x4 camera pose matrix in
 @param inputQRCodeIdentifierBuffer: A buffer to place left text from the QR code after the dimension information has been removed
@@ -61,7 +49,7 @@ This function takes a BGR frame of the appropriate size, scans for a QR code wit
 bool estimateStateFromBGRFrame(const cv::Mat &inputBGRFrame, cv::Mat &inputCameraPoseBuffer, std::string &inputQRCodeIdentifierBuffer, double &inputQRCodeDimensionBuffer);
 
 /*
-This function takes a grayscale frame of the appropriate size, scans for a QR code with an embedded size (recognized decimal formats: ft, in, cm, mm, m), and stores the pose of the camera (OpenGL format) relative to the coordinate system of the QR tag in the provided buffer.  If multiple tags are recognized, it will only return the information for the first.
+This function takes a grayscale frame of the appropriate size, scans for a QR code with an embedded size (recognized decimal formats: ft, in, cm, mm, m), and stores the pose of the camera (OpenCV format) relative to the coordinate system of the QR tag in the provided buffer.  If multiple tags are recognized, it will only return the information for the first.
 @param inputGrayscaleFrame: The frame to process (should be same size as calibration)
 @param inputCameraPoseBuffer: The buffer to place the 4x4 camera pose matrix in
 @param inputQRCodeIdentifierBuffer: A buffer to place left text from the QR code after the dimension information has been removed
@@ -82,7 +70,7 @@ cv::Mat frameBuffer;
 };
 
 /*
-This function takes a string in the format "dimensionIdentifier" (for example, "12.0inFKDJL") and stores the dimension from the string in meters and the remainder.  In the example case, it would store 0.3048 and "FKDJL".  It supports the following extensions and is case insensitive: "m", "cm", "mm", "ft", "in".
+This function takes a string in the format "dimensionIdentifier" (for example, "12.0in-FKDJL") and stores the dimension from the string in meters and the remainder.  In the example case, it would store 0.3048 and "FKDJL".  It supports the following extensions and is case insensitive: "m", "cm", "mm", "ft", "in".
 @param inputQRCodeString: The original string
 @param inputDimensionBuffer: The buffer to store the extracted dimension (in meters) in
 @param inputIdentifierBuffer: The remainder of the string after the dimension has been extracted

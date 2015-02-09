@@ -51,7 +51,8 @@ distortionParameters = inputCameraDistortionParameters;
 showResultsInWindow = inputShowResultsInWindow;
 
 //Configure the QR code reader object
-zbarScanner.set_config(zbar::ZBAR_NONE, zbar::ZBAR_CFG_ENABLE, 1);
+zbarScanner.set_config(zbar::ZBAR_QRCODE , zbar::ZBAR_CFG_ENABLE, 1);
+zbarScanner.enable_cache(false); //Set it so that it will show QR code result even if it was in the last frame
 
 //Create window to show results, if we are suppose to
 if(showResultsInWindow == true)
@@ -61,7 +62,7 @@ cv::namedWindow(QRCodeStateEstimatorWindowTitle, CV_WINDOW_AUTOSIZE);
 }
 
 /*
-This function takes a BGR frame of the appropriate size, scans for a QR code with an embedded size (recognized decimal formats: ft, in, cm, mm, m), and stores the pose of the camera (OpenGL format) relative to the coordinate system of the QR tag in the provided buffer.  If multiple tags are recognized, it will only return the information for the first.
+This function takes a BGR frame of the appropriate size, scans for a QR code with an embedded size (recognized decimal formats: ft, in, cm, mm, m), and stores the pose of the camera (OpenCV format) relative to the coordinate system of the QR tag in the provided buffer.  If multiple tags are recognized, it will only return the information for the first.
 @param inputBGRFrame: The frame to process (should be same size as calibration)
 @param inputCameraPoseBuffer: The buffer to place the 4x4 camera pose matrix in
 @param inputQRCodeIdentifierBuffer: A buffer to place left text from the QR code after the dimension information has been removed
@@ -87,7 +88,7 @@ SOM_CATCH("Error calculating pose from image\n")
 }
 
 /*
-This function takes a grayscale frame of the appropriate size, scans for a QR code with an embedded size (recognized decimal formats: ft, in, cm, mm, m), and stores the pose of the camera (OpenGL format) relative to the coordinate system of the QR tag in the provided buffer.  If multiple tags are recognized, it will only return the information for the first.
+This function takes a grayscale frame of the appropriate size, scans for a QR code with an embedded size (recognized decimal formats: ft, in, cm, mm, m), and stores the pose of the camera (OpenCV format) relative to the coordinate system of the QR tag in the provided buffer.  If multiple tags are recognized, it will only return the information for the first.
 @param inputGrayscaleFrame: The frame to process (should be same size as calibration)
 @param inputCameraPoseBuffer: The buffer to place the 4x4 camera pose matrix in
 @param inputQRCodeIdentifierBuffer: A buffer to place left text from the QR code after the dimension information has been removed
@@ -163,9 +164,7 @@ cv::Mat_<double> translationVector(3,1);
 cv::solvePnP(objectVerticesInObjectCoordinates, openCVPoints, cameraMatrix, distortionParameters, rotationVector, translationVector);
 
 
-//Convert to an openGL matrix
 cv::Mat_<double> rotationMatrix, viewMatrix(4, 4);
-cv::Mat_<double> glViewMatrix;
 
 //Get 3x3 rotation matrix
 cv::Rodrigues(rotationVector, rotationMatrix);
@@ -183,12 +182,10 @@ viewMatrix.at<double>(row, col) = rotationMatrix.at<double>(row, col);
 viewMatrix.at<double>(row, 3) = translationVector.at<double>(row, 0);
 }
 viewMatrix.at<double>(3,3) = 1.0;
-viewMatrix = cvToGlConversionMatrix * viewMatrix;
-glViewMatrix = cv::Mat::zeros(4, 4, CV_64F);
-cv::transpose(viewMatrix , glViewMatrix);
+
 
 //Invert matrix to get position and orientation of camera relative to tag, storing it in given variable
-invert(glViewMatrix, inputCameraPoseBuffer);
+invert(viewMatrix, inputCameraPoseBuffer);
 inputQRCodeIdentifierBuffer = QRCodeIdentifierString;
 inputQRCodeDimensionBuffer = QRCodeDimensionInMeters;
 
@@ -205,6 +202,9 @@ line(bufferFrame, cv::Point(symbol->get_location_x(3), symbol->get_location_y(3)
 imshow(QRCodeStateEstimatorWindowTitle, bufferFrame);
 cv::waitKey(30);
 }
+
+//Make sure it updates every frame, even if it found the qr code in the last frame
+zbarScanner.recycle_image(zbarFrame);
 
 return true;
 } //End symbol for loop

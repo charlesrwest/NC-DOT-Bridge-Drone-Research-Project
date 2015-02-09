@@ -20,7 +20,7 @@ std::string bufferString;
 double      bufferDouble;
 
 //Test string extraction
-std::string testString0 = "12.3ininches";
+std::string testString0 = "12.3in-inches";
 std::string expectedRemainder0 = "inches";
 if(extractQRCodeDimensionFromString(testString0, bufferDouble, bufferString) != true)
 {
@@ -40,6 +40,29 @@ printf("returned: %lf\n", bufferDouble);
 fprintf(stderr, "Failed to extract double and convert to meters\n");
 return 1;
 }
+
+//Test string extraction
+std::string testString1 = "12.3mm-tester";
+std::string expectedRemainder1 = "tester";
+if(extractQRCodeDimensionFromString(testString1, bufferDouble, bufferString) != true)
+{
+fprintf(stderr, "Failed to read something we should have\n");
+return 1;
+}
+
+if(bufferString != expectedRemainder1)
+{
+fprintf(stderr, "Failed extract identifier: %s\n", bufferString.c_str());
+return 1;
+}
+
+if(fabs(bufferDouble - 0.0123) > .0001)
+{
+printf("returned: %lf\n", bufferDouble);
+fprintf(stderr, "Failed to extract double and convert to meters\n");
+return 1;
+}
+
 
 
 //Define camera matrix according to webcam calibration
