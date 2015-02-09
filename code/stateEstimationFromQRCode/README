@@ -1,0 +1,7 @@
+
+
+To generate QR codes in Ubuntu Linux, use the command line program qrencode.
+
+The following command can be used to make a large resolution version of a QR code without any margin in the current directory:
+qrencode -o ./6InTestQRCode.png -s 100 -m 0 '6inIdentString'
+

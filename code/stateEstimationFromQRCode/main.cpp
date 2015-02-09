@@ -5,12 +5,42 @@
 #include <zbar.h>
 #include <iostream>
 #include <iomanip>
+#include <memory>
+
+#include "QRCodeStateEstimator.hpp"
+#include<cmath>
 
 using namespace std;
 using namespace zbar;
 
 int main(int argc, char **argv) 
 {
+//Test string extraction/unit conversion////////////////////////////////////////////
+std::string bufferString;
+double      bufferDouble;
+
+//Test string extraction
+std::string testString0 = "12.3ininches";
+std::string expectedRemainder0 = "inches";
+if(extractQRCodeDimensionFromString(testString0, bufferDouble, bufferString) != true)
+{
+fprintf(stderr, "Failed to read something we should have\n");
+return 1;
+}
+
+if(bufferString != expectedRemainder0)
+{
+fprintf(stderr, "Failed extract identifier\n");
+return 1;
+}
+
+if(fabs(bufferDouble - 0.31242) > .001)
+{
+printf("returned: %lf\n", bufferDouble);
+fprintf(stderr, "Failed to extract double and convert to meters\n");
+return 1;
+}
+
 
 //Define camera matrix according to webcam calibration
 cv::Mat_<double> cameraMatrix(3, 3);
@@ -56,6 +86,63 @@ exit(EXIT_FAILURE);
 cap.set(CV_CAP_PROP_FRAME_WIDTH, 1280);
 cap.set(CV_CAP_PROP_FRAME_HEIGHT, 720);
 
+std::unique_ptr<QRCodeStateEstimator> stateEstimator;
+
+printf("About to create a state estimator\n");
+
+try
+{
+SOM_TRY
+stateEstimator.reset(new QRCodeStateEstimator(1280, 720, cameraMatrix, distortionParameters, true));
+SOM_CATCH("Error initializing state estimator\n")
+}
+catch(const std::exception &inputExceptions)
+{
+printf("Exception: %s\n", inputExceptions.what());
+}
+printf("State estimator made\n");
+
+cv::Mat frame;
+cv::Mat cameraPoseBuffer;
+std::string QRCodeIdentifierBuffer;
+double QRCodeDimensionBuffer;
+bool thereIsANewFrame = false;
+
+//cv::namedWindow("captured", CV_WINDOW_AUTOSIZE);
+while(true)
+{
+// Capture an OpenCV frame
+cap >> frame;
+
+//printf("About to try to process a frame\n");
+
+//imshow("captured", frame);
+
+SOM_TRY
+thereIsANewFrame = stateEstimator->estimateStateFromBGRFrame(frame, cameraPoseBuffer, QRCodeIdentifierBuffer, QRCodeDimensionBuffer);
+SOM_CATCH("Error estimating state\n")
+
+//printf("Frames processed\n");
+
+//Print out values of matrix
+if(thereIsANewFrame)
+{
+printf("Camera position/orientation matrix:\n");
+for(int row = 0; row < 4; row++)
+{
+
+for(int col = 0; col < 4; col ++)
+{
+printf("%lf ", cameraPoseBuffer.at<double>(row, col));
+}
+printf("\n");
+}
+}
+
+
+}
+
+/*
 //Create a window to show the video and any QR codes that have been identified
 cv::namedWindow("captured", CV_WINDOW_AUTOSIZE);
     
@@ -209,6 +296,8 @@ image.set_data(NULL, 0);
 //Wait for next frame and give window a chance to render        
 cv::waitKey(30);
 }
+
+*/
 
 return 0;
 }
