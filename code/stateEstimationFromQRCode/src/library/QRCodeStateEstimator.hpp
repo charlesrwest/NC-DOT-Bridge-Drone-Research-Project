@@ -14,7 +14,7 @@
 #include <zbar.h>
 
 //Declare handy constants
-static const std::string QRCodeStateEstimatorWindowTitle = "Now";
+static const std::string QRCodeStateEstimatorWindowTitle = "QR Code State Estimator";
 static const std::map<std::string, double> unitIdentifierToMetricMeterConversionFactor = {{"m-", 1.0}, {"cm-", .01}, {"mm-", .001}, {"ft-", .3048}, {"in-", .0254}};
 
 
@@ -70,7 +70,7 @@ cv::Mat frameBuffer;
 };
 
 /*
-This function takes a string in the format "dimensionIdentifier" (for example, "12.0in-FKDJL") and stores the dimension from the string in meters and the remainder.  In the example case, it would store 0.3048 and "FKDJL".  It supports the following extensions and is case insensitive: "m", "cm", "mm", "ft", "in".
+This function takes a string in the format "dimensionIdentifier" (for example, "12.0in-FKDJL") and stores the dimension from the string in meters and the remainder.  In the example case, it would store 0.3048 and "FKDJL".  It supports the following extensions and is case insensitive: "m-", "cm-", "mm-", "ft-", "in-".
 @param inputQRCodeString: The original string
 @param inputDimensionBuffer: The buffer to store the extracted dimension (in meters) in
 @param inputIdentifierBuffer: The remainder of the string after the dimension has been extracted

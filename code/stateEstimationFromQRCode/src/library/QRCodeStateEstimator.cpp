@@ -215,7 +215,7 @@ return false;
 }
 
 /*
-This function takes a string in the format "12.0inFKDJL" and stores the dimension from the string in meters and the remainder.  In the example case, it would store 0.3048 and "FKDJL".
+This function takes a string in the format "dimensionIdentifier" (for example, "12.0in-FKDJL") and stores the dimension from the string in meters and the remainder.  In the example case, it would store 0.3048 and "FKDJL".  It supports the following extensions and is case insensitive: "m-", "cm-", "mm-", "ft-", "in-".
 @param inputQRCodeString: The original string
 @param inputDimensionBuffer: The buffer to store the extracted dimension (in meters) in
 @param inputIdentifierBuffer: The remainder of the string after the dimension has been extracted
